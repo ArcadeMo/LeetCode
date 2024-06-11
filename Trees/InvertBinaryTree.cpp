@@ -22,16 +22,15 @@ public:
             return nullptr;
         }
 
-        // Recursively invert the left and right subtrees
-        TreeNode* left = invertTree(root->left);
-        TreeNode* right = invertTree(root->right);
+        // Create a new TreeNode with the same value as the current root
+        TreeNode* node = new TreeNode(root->val);
 
-        // Swap the left and right children of the current node
-        root->left = right;
-        root->right = left;
+        // Recursively invert the subtree and assign it to the opposite child of the new node
+        node->right = invertTree(root->left);
+        node->left = invertTree(root->right);
 
-        // Return the root of the inverted tree
-        return root;
+        // Return the new node, which is the root of the inverted subtree
+        return node;
     }
 };
 
