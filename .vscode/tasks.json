@@ -8,9 +8,9 @@
         "args": [
             "-std=c++20",                       // Use C++20 standard
             "-g",                               // Include debugging information
-            "${file}",                          // Compiles the active file
+            "${relativeFile}",                  // Compiles the active file relative to the workspace
             "-o",                               // Specifies the output file
-            "${fileDirname}/build/${fileBasenameNoExtension}"  // Output path
+            "${workspaceFolder}/build/${fileBasenameNoExtension}"  // Output path in the build directory within the workspace
         ],
             "group": {
             "kind": "build",
