@@ -35,14 +35,21 @@ public:
 // Helper function to print the result
 void printGroupedAnagrams(Solution& solution, vector<string>& strs) {
     vector<vector<string>> result = solution.groupAnagrams(strs);
-    for (const auto& group : result) {
+    cout << "[";
+    for (size_t i = 0; i < result.size(); ++i) {
         cout << "[";
-        for (const string& str : group) {
-            cout << "\"" << str << "\", ";
+        for (size_t j = 0; j < result[i].size(); ++j) {
+            cout << "\"" << result[i][j] << "\"";
+            if (j < result[i].size() - 1) {
+                cout << ", ";
+            }
         }
-        cout << "], ";
+        cout << "]";
+        if (i < result.size() - 1) {
+            cout << ", ";
+        }
     }
-    cout << endl;
+    cout << "]" << endl;
 }
 
 int main() {
